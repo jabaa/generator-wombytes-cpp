@@ -1,0 +1,18 @@
+{
+  "name": "generator-wombytes-cpp",
+  "version": "0.1.0",
+  "description": "A Yeoman generator for C++ projects with Wombytes style",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "c++"
+  ],
+  "author": "Thomas Sablik",
+  "license": "MIT License",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "yeoman-generator": "^4.4.0"
+  }
+}

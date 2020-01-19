@@ -1,0 +1,6 @@
+add_executable(<%= projectName %> main.cpp)
+target_compile_features(<%= projectName %> PUBLIC cxx_std_17)
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    target_compile_options(<%= projectName %> PRIVATE --coverage)
+    target_link_options(<%= projectName %> PRIVATE --coverage)
+endif()
