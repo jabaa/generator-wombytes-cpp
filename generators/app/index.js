@@ -45,7 +45,8 @@ module.exports = class extends Generator {
     let filelist = [
       'CMakeLists.txt',
       'src/CMakeLists.txt',
-      'test/CMakeLists.txt'
+      'test/CMakeLists.txt',
+      'test/main.cpp'
     ];
 
     for (const file of filelist) {
@@ -74,8 +75,7 @@ module.exports = class extends Generator {
       '.devcontainer/Dockerfile',
       '.vscode/c_cpp_properties.json',
       '.vscode/settings.json',
-      'src/main.cpp',
-      'test/main.cpp'
+      'src/main.cpp'
     ];
 
     for (const file of filelist) {

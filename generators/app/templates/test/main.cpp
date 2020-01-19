@@ -1,2 +1,2 @@
-#define BOOST_TEST_MODULE sandbox_test
+#define BOOST_TEST_MODULE <%= projectName %>_test
 #include <boost/test/unit_test.hpp>
