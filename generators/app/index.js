@@ -1,6 +1,7 @@
 const Generator = require('yeoman-generator');
 const moment = require('moment');
 const path = require('path');
+const generatorVersion = require('../../package.json').version;
 
 module.exports = class extends Generator {
   
@@ -66,9 +67,16 @@ module.exports = class extends Generator {
       }
     );
 
+    this.fs.copyTpl(
+      this.templatePath('README.md'),
+      this.destinationPath('README.md'),
+      {
+        generatorVersion
+      }
+    );
+
     filelist = [
       'conanfile.txt',
-      'README.md',
       'CPPLINT.cfg',
       '.clang-tidy',
       '.devcontainer/devcontainer.json',
