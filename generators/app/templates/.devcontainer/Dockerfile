@@ -24,7 +24,7 @@ RUN apt-get update \
     && apt-get -y install git iproute2 procps lsb-release \
     #
     # Install C++ tools
-    && apt-get -y install build-essential cmake cppcheck valgrind \
+    && apt-get -y install build-essential cmake cppcheck valgrind lcov \
     #
     # Install Clang
     && apt-get -y install clang clang-format clang-tidy clang-tools \
