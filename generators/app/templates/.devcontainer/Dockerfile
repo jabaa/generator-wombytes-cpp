@@ -27,7 +27,7 @@ RUN apt-get update \
     && apt-get -y install build-essential cmake cppcheck valgrind lcov \
     #
     # Install Clang
-    && apt-get -y install clang clang-format clang-tidy clang-tools \
+    && apt-get -y install clang clang-format clang-tidy clang-tools llvm \
     #
     # Install pip3
     && apt-get -y install python3-pip \

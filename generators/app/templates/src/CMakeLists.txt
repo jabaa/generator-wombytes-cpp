@@ -1,7 +1,7 @@
 add_executable(<%= projectName %> main.cpp)
 target_link_libraries(<%= projectName %> PRIVATE CONAN_PKG::gsl_microsoft)
 target_compile_features(<%= projectName %> PUBLIC cxx_std_17)
-if (${ENABLE_COVERAGE} AND "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+if (${ENABLE_COVERAGE})
     target_compile_options(<%= projectName %> PRIVATE --coverage)
     target_link_options(<%= projectName %> PRIVATE --coverage)
 endif()

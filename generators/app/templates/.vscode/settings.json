@@ -80,6 +80,7 @@
         "rope": "cpp",
         "slist": "cpp",
         "scoped_allocator": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "span": "cpp"
     }
 }
