@@ -32,7 +32,7 @@ describe('App', () => {
       .withPrompts({author: 'Author Name'})
       .then((tmpPath) => {
         expect(generatorVersion).to.match(/[0-9]+\.[0-9]+\.[0-9]+/);
-        expect(fs.readFileSync(path.join(tmpPath, projectName, 'README.md'), 'utf8')).to.eql('Created with wombytes-cpp 0.2.0\n');
+        expect(fs.readFileSync(path.join(tmpPath, projectName, 'README.md'), 'utf8')).to.eql(`Created with wombytes-cpp ${generatorVersion}\n`);
       });
   });
 });
