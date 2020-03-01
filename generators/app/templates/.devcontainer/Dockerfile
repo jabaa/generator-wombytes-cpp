@@ -24,10 +24,10 @@ RUN apt-get update \
     && apt-get -y install git iproute2 procps lsb-release \
     #
     # Install C++ tools
-    && apt-get -y install build-essential cmake cppcheck valgrind lcov \
+    && apt-get -y install build-essential ninja-build cmake cmake-curses-gui cppcheck valgrind lcov \
     #
     # Install Clang
-    && apt-get -y install clang clang-format clang-tidy clang-tools \
+    && apt-get -y install clang clang-format clang-tidy clang-tools llvm lldb\
     #
     # Install pip3
     && apt-get -y install python3-pip \
@@ -45,6 +45,12 @@ RUN apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
+    #
+    # Configure Conan
+    && sudo -u $USERNAME CC=gcc CXX=g++ conan profile new default --detect \
+    && sudo -u $USERNAME CC=clang CXX=clang++ conan profile new clang --detect \
+    && sudo -u $USERNAME conan profile update settings.compiler.libcxx=libstdc++11 default \
+    && sudo -u $USERNAME conan profile update settings.compiler.libcxx=libstdc++11 clang \
     #
     # Clean up
     && apt-get autoremove -y \

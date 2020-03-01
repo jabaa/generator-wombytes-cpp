@@ -1,9 +1,6 @@
-#include <gsl/span>
-#include <iostream>
-#include <cstdlib>
+#include "Application.hpp"
 
 int main(int argc, char *argv[]) {
-  gsl::span<char*> arguments(argv, argc);
-  std::cout << arguments[0] << '\n';
-  return EXIT_SUCCESS;
+  Application app(argc, argv);
+  return app.run();
 }

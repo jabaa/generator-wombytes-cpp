@@ -45,6 +45,7 @@ module.exports = class extends Generator {
   writing() {
     let filelist = [
       'CMakeLists.txt',
+      '.vscode/launch.json',
       'src/CMakeLists.txt',
       'test/CMakeLists.txt',
       'test/main.cpp'
@@ -78,12 +79,16 @@ module.exports = class extends Generator {
     filelist = [
       'conanfile.txt',
       'CPPLINT.cfg',
+      '.clang-format',
       '.clang-tidy',
       '.devcontainer/devcontainer.json',
       '.devcontainer/Dockerfile',
       '.vscode/c_cpp_properties.json',
       '.vscode/settings.json',
-      'src/main.cpp'
+      'src/main.cpp',
+      'src/Application.cpp',
+      'src/Application.hpp',
+      'test/Application.cpp'
     ];
 
     for (const file of filelist) {
