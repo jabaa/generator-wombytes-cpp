@@ -46,6 +46,12 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
+    # Configure Conan
+    && sudo -u $USERNAME CC=gcc CXX=g++ conan profile new default --detect \
+    && sudo -u $USERNAME CC=clang CXX=clang++ conan profile new clang --detect \
+    && sudo -u $USERNAME conan profile update settings.compiler.libcxx=libstdc++11 default \
+    && sudo -u $USERNAME conan profile update settings.compiler.libcxx=libstdc++11 clang \
+    #
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
