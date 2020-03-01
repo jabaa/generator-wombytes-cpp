@@ -82,5 +82,6 @@
         "scoped_allocator": "cpp",
         "shared_mutex": "cpp",
     },
+    "cmake.generator": "Ninja",
     "editor.formatOnSave": true
 }
