@@ -24,10 +24,10 @@ RUN apt-get update \
     && apt-get -y install git iproute2 procps lsb-release \
     #
     # Install C++ tools
-    && apt-get -y install build-essential cmake cppcheck valgrind lcov \
+    && apt-get -y install build-essential ninja-build cmake cmake-curses-gui cppcheck valgrind lcov \
     #
     # Install Clang
-    && apt-get -y install clang clang-format clang-tidy clang-tools llvm \
+    && apt-get -y install clang clang-format clang-tidy clang-tools llvm lldb\
     #
     # Install pip3
     && apt-get -y install python3-pip \
