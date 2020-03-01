@@ -6,10 +6,11 @@ A [Yeoman](http://yeoman.io/) generator for Wombytes C++ projects.
 [![Code Coverage](https://codecov.io/gh/jabaa/generator-wombytes-cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/jabaa/generator-wombytes-cpp)
 [![License](https://img.shields.io/packagist/l/doctrine/orm.svg)](LICENSE.md)
 
-| Buildsystem     | CMake                     |
-| Package Manager | Conan                     |
-| IDE Support     | Visual Studio Code        |
-| Dev Environment | Docker Container Debian 9 |
+Buildsystem: CMake                     
+Package Manager: Conan                     
+IDE Support: Visual Studio Code        
+Dev Environment: Docker Container Debian 9 
+
 
 Packages:
 - fmt 6.1.2
