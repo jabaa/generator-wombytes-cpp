@@ -80,6 +80,12 @@
         "rope": "cpp",
         "slist": "cpp",
         "scoped_allocator": "cpp",
-        "shared_mutex": "cpp"
-    }
+        "shared_mutex": "cpp",
+        "span": "cpp",
+        "pointers": "cpp",
+        "gsl_assert": "cpp",
+        "gsl": "cpp"
+    },
+    "cmake.generator": "Ninja",
+    "editor.formatOnSave": true
 }
