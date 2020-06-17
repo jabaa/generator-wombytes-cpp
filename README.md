@@ -9,7 +9,7 @@ A [Yeoman](http://yeoman.io/) generator for Wombytes C++ projects.
 Buildsystem: CMake                     
 Package Manager: Conan                     
 IDE Support: Visual Studio Code        
-Dev Environment: Docker Container Debian 9 
+Dev Environment: Docker Container Debian 10
 
 
 Packages:
