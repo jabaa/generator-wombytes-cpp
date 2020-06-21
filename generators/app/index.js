@@ -16,7 +16,7 @@ module.exports = class extends Generator {
     });
   }
 
-  prompting() {
+  async prompting() {
     let prompts = [];
     if (!this.options.projectName) {
       prompts.push({
@@ -31,11 +31,11 @@ module.exports = class extends Generator {
       name: 'author',
       message: 'Author:'
     });
-    return this.prompt(prompts).then(answers => {
-      if (answers.projectName) {
-        this.options.projectName = answers.projectName;
-      }
-    });
+    const answers = await this.prompt(prompts);
+    if (answers.projectName) {
+      this.options.projectName = answers.projectName;
+    }
+    this.options.author = answers.author;
   }
 
   configuring() {
