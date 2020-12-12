@@ -85,9 +85,11 @@ module.exports = class extends Generator {
       '.devcontainer/Dockerfile',
       '.vscode/c_cpp_properties.json',
       '.vscode/settings.json',
-      'src/main.cpp',
+      'cmake/Conan.cmake',
+      'cmake/CompilerWarnings.cmake',
       'src/Application.cpp',
       'src/Application.hpp',
+      'src/main.cpp',
       'test/Application.cpp'
     ];
 
