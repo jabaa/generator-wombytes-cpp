@@ -1,6 +1,6 @@
 {
   "name": "generator-wombytes-cpp",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A Yeoman generator for C++ projects with Wombytes style",
   "scripts": {
     "coverage": "nyc --reporter lcovonly npm test && codecov -F nyc_mocha",
