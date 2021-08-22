@@ -15,36 +15,33 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
 
 describe('App', () => {
-  it('generates a project without argument', () => {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+  it('generates a project without argument', async () => {
+    const runResult = await helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         projectName: 'projectName',
         author: 'Author Name'
-      })
-      .then((tmpPath) => {
-        expect(fs.readdirSync(tmpPath)).to.eql(['projectName']);
-        expect(fs.readFileSync(path.join(tmpPath, 'projectName', 'LICENSE.md'), 'utf8')).to.eql(licenseText);
       });
+    const tmpPath = runResult.cwd;
+    expect(fs.readdirSync(tmpPath)).to.eql(['projectName']);
+    expect(fs.readFileSync(path.join(tmpPath, 'projectName', 'LICENSE.md'), 'utf8')).to.eql(licenseText);
   });
 
-  it('generates a project with argument', () => {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+  it('generates a project with argument', async () => {
+    const runResult = await helpers.run(path.join(__dirname, '../generators/app'))
       .withArguments(['projectName'])
-      .withPrompts({author: 'Author Name'})
-      .then((tmpPath) => {
-        expect(fs.readdirSync(tmpPath)).to.eql(['projectName']);
-        expect(fs.readFileSync(path.join(tmpPath, 'projectName', 'LICENSE.md'), 'utf8')).to.eql(licenseText);
-      });
+      .withPrompts({ author: 'Author Name' });
+    const tmpPath = runResult.cwd;
+    expect(fs.readdirSync(tmpPath)).to.eql(['projectName']);
+    expect(fs.readFileSync(path.join(tmpPath, 'projectName', 'LICENSE.md'), 'utf8')).to.eql(licenseText);
   });
 
-  it('writes generator version into README.md', () => {
+  it('writes generator version into README.md', async () => {
     const projectName = 'projectName';
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    const runResult = await helpers.run(path.join(__dirname, '../generators/app'))
       .withArguments([projectName])
-      .withPrompts({author: 'Author Name'})
-      .then((tmpPath) => {
-        expect(generatorVersion).to.match(/[0-9]+\.[0-9]+\.[0-9]+/);
-        expect(fs.readFileSync(path.join(tmpPath, projectName, 'README.md'), 'utf8')).to.eql(`Created with wombytes-cpp ${generatorVersion}\n`);
-      });
+      .withPrompts({ author: 'Author Name' });
+    const tmpPath = runResult.cwd;
+    expect(generatorVersion).to.match(/[0-9]+\.[0-9]+\.[0-9]+/);
+    expect(fs.readFileSync(path.join(tmpPath, projectName, 'README.md'), 'utf8')).to.eql(`Created with wombytes-cpp ${generatorVersion}\n`);
   });
 });
