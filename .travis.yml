@@ -1,5 +1,4 @@
-language:
-  node_js
+language: node_js
 node_js:
   - 16
 script:
@@ -11,4 +10,4 @@ deploy:
   api_key: $NPM_API_TOKEN
   on:
     tags: true
-    branch: master
+    branch: main
