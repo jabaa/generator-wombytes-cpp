@@ -1,0 +1,14 @@
+{
+  "path": "ServerApplication",
+  "files": [
+    "src/Application.cpp",
+    "src/Application.hpp",
+    "src/HTTPRequestHandler.cpp",
+    "src/HTTPRequestHandler.hpp",
+    "src/HTTPRequestHandlerFactory.cpp",
+    "src/HTTPRequestHandlerFactory.hpp",
+    "src/main.cpp",
+    "test/Application.cpp"
+  ],
+  "templates": ["src/CMakeLists.txt", "test/CMakeLists.txt", "test/main.cpp"]
+}
