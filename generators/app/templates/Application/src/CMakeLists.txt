@@ -1,5 +1,5 @@
 add_library(Application Application.hpp Application.cpp)
-target_link_libraries(Application PUBLIC CONAN_PKG::gsl_microsoft CONAN_PKG::poco)
+target_link_libraries(Application PUBLIC CONAN_PKG::ms-gsl CONAN_PKG::poco)
 target_include_directories(Application INTERFACE .)
 target_compile_features(Application PUBLIC cxx_std_17)
 if (${ENABLE_COVERAGE})

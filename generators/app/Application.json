@@ -1,0 +1,10 @@
+{
+  "path": "Application",
+  "files": [
+    "src/Application.cpp",
+    "src/Application.hpp",
+    "src/main.cpp",
+    "test/Application.cpp"
+  ],
+  "templates": ["src/CMakeLists.txt", "test/CMakeLists.txt", "test/main.cpp"]
+}
