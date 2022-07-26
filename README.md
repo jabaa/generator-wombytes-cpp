@@ -2,7 +2,7 @@
 
 A [Yeoman](http://yeoman.io/) generator for Wombytes C++ projects.
 
-[![Build Status](https://travis-ci.com/jabaa/generator-wombytes-cpp.svg?branch=main)](https://travis-ci.com/jabaa/generator-wombytes-cpp)
+[![Build Status](https://app.travis-ci.com/jabaa/generator-wombytes-cpp.svg?branch=main)](https://app.travis-ci.com/github/jabaa/generator-wombytes-cpp)
 [![Code Coverage](https://codecov.io/gh/jabaa/generator-wombytes-cpp/branch/main/graph/badge.svg)](https://codecov.io/gh/jabaa/generator-wombytes-cpp)
 [![License](https://img.shields.io/packagist/l/doctrine/orm.svg)](LICENSE.md)
 
