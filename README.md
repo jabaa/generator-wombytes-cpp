@@ -17,3 +17,23 @@ Packages:
 - Boost 1.79.0
 - GSL 4.0.0
 - Poco 1.12.1
+
+## Requirements
+
+- CMake
+- Conan
+- cpplint
+
+## Getting started
+
+1.  Install [Yeoman](http://yeoman.io/)
+
+        npm install -g yo
+
+2.  Install generator
+
+        npm install -g generator-wombytes-cpp
+
+3.  Scaffold project
+
+        yo wombytes-cpp
