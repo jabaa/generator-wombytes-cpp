@@ -19,7 +19,7 @@ void Application::handleOption(const std::string& name, const std::string& value
     Poco::Util::ServerApplication::handleOption(name, value);
 }
 
-int Application::main(const std::vector<std::string>& args) {
+int Application::main(const std::vector<std::string>&) {
     Poco::Net::HTTPServer server(new HTTPRequestHandlerFactory, 8080);
 
     server.start();

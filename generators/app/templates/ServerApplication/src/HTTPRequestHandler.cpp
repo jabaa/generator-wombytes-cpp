@@ -1,3 +1,3 @@
 #include "HTTPRequestHandler.hpp"
 
-void HTTPRequestHandler::handleRequest(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTPServerResponse& response) {}
+void HTTPRequestHandler::handleRequest(Poco::Net::HTTPServerRequest&, Poco::Net::HTTPServerResponse&) {}

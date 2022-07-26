@@ -1,49 +1,37 @@
-// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
-// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/javascript-node-12
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/cpp
 {
-  "name": "Node.js 16",
-  "dockerFile": "Dockerfile",
-  // Use 'settings' to set *default* container specific settings.json values on container create.
-  // You can edit these settings after create using File > Preferences > Settings > Remote.
-  "settings": {
-    "terminal.integrated.profiles.linux": {
-      "bash": {
-        "path": "bash",
-        "icon": "terminal-bash"
-      },
-      "zsh": {
-        "path": "zsh"
-      },
-      "fish": {
-        "path": "fish"
-      },
-      "tmux": {
-        "path": "tmux",
-        "icon": "terminal-tmux"
-      },
-      "pwsh": {
-        "path": "pwsh",
-        "icon": "terminal-powershell"
-      }
-    },
-    "terminal.integrated.defaultProfile.linux": "bash"
-  },
-  // Use 'appPort' to create a container with published ports. If the port isn't working, be sure
-  // your server accepts connections from all interfaces (0.0.0.0 or '*'), not just localhost.
-  // "appPort": [],
-  // Uncomment the next line to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
-  // Uncomment the next line to have VS Code connect as an existing non-root user in the container.
-  // On Linux, by default, the container user's UID/GID will be updated to match your local user. See
-  // https://aka.ms/vscode-remote/containers/non-root for details on adding a non-root user if none exist.
-  "remoteUser": "node",
-  // Add the IDs of extensions you want installed when the container is created in the array below.
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "eg2.vscode-npm-script",
-    "esbenp.prettier-vscode",
-    "mhutchie.git-graph"
-  ]
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian / Ubuntu OS version: debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+		// Use Debian 11, Ubuntu 18.04 or Ubuntu 22.04 on local arm64/Apple Silicon
+		"args": { "VARIANT": "debian-11" }
+	},
+	"runArgs": ["--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint",
+				"ms-vscode.cpptools-extension-pack"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "gcc -v",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"node": "18"
+	}
 }
