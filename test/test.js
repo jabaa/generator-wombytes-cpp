@@ -61,16 +61,43 @@ describe('application project without argument', () => {
   it('builds C++ project', async () => {
     const buildDir = path.join(tmpPath, projectName, 'build');
     const cmake = spawn('cmake', ['--build', '.'], { cwd: buildDir });
-    const buildCode = await new Promise((res) => {
+    let stdout = '';
+    cmake.stdout.on('data', (data) => {
+      stdout += data;
+    });
+    let stderr = '';
+    cmake.stderr.on('data', (data) => {
+      stderr += data;
+    });
+    const code = await new Promise((res) => {
       cmake.on('close', res);
     });
-    expect(buildCode).to.be(0);
+    if (code !== 0) {
+      console.log(stdout);
+      console.log(stderr);
+    }
+    expect(code).to.be(0);
+  });
 
+  it('runs C++ project tests', async () => {
+    const buildDir = path.join(tmpPath, projectName, 'build');
     const ctest = spawn('ctest', [], { cwd: buildDir });
-    const testCode = await new Promise((res) => {
+    let stdout = '';
+    ctest.stdout.on('data', (data) => {
+      stdout += data;
+    });
+    let stderr = '';
+    ctest.stderr.on('data', (data) => {
+      stderr += data;
+    });
+    const code = await new Promise((res) => {
       ctest.on('close', res);
     });
-    expect(testCode).to.be(0);
+    if (code !== 0) {
+      console.log(stdout);
+      console.log(stderr);
+    }
+    expect(code).to.be(0);
   });
 
   after(() => {
@@ -123,16 +150,43 @@ describe('server application project without argument', () => {
   it('builds C++ project', async () => {
     const buildDir = path.join(tmpPath, projectName, 'build');
     const cmake = spawn('cmake', ['--build', '.'], { cwd: buildDir });
-    const buildCode = await new Promise((res) => {
+    let stdout = '';
+    cmake.stdout.on('data', (data) => {
+      stdout += data;
+    });
+    let stderr = '';
+    cmake.stderr.on('data', (data) => {
+      stderr += data;
+    });
+    const code = await new Promise((res) => {
       cmake.on('close', res);
     });
-    expect(buildCode).to.be(0);
+    if (code !== 0) {
+      console.log(stdout);
+      console.log(stderr);
+    }
+    expect(code).to.be(0);
+  });
 
+  it('runs C++ project tests', async () => {
+    const buildDir = path.join(tmpPath, projectName, 'build');
     const ctest = spawn('ctest', [], { cwd: buildDir });
-    const testCode = await new Promise((res) => {
+    let stdout = '';
+    ctest.stdout.on('data', (data) => {
+      stdout += data;
+    });
+    let stderr = '';
+    ctest.stderr.on('data', (data) => {
+      stderr += data;
+    });
+    const code = await new Promise((res) => {
       ctest.on('close', res);
     });
-    expect(testCode).to.be(0);
+    if (code !== 0) {
+      console.log(stdout);
+      console.log(stderr);
+    }
+    expect(code).to.be(0);
   });
 
   after(() => {

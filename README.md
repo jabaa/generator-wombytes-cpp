@@ -20,9 +20,10 @@ Packages:
 
 ## Requirements
 
-- CMake
-- Conan
-- cpplint
+- [CMake](https://cmake.org/)
+- [Conan](https://conan.io/)
+- [cppcheck](https://cppcheck.sourceforge.io/)
+- [cpplint](https://github.com/cpplint/cpplint)
 
 ## Getting started
 

@@ -1,9 +1,14 @@
+dist: focal
 language: node_js
 node_js:
-  - 16
+  - 18
+before_install:
+  - sudo apt-get install cppcheck
+  - pip3 install conan cpplint
+  - conan profile new --detect default
+  - conan profile update settings.compiler.libcxx=libstdc++11 default
 script:
   - npm run coverage
-
 deploy:
   provider: npm
   email: $NPM_EMAIL
@@ -11,3 +16,6 @@ deploy:
   on:
     tags: true
     branch: main
+addons:
+  apt:
+    update: true
