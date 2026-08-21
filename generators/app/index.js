@@ -1,9 +1,9 @@
-const Generator = require('yeoman-generator');
-const moment = require('moment');
-const path = require('path');
-const generatorVersion = require('../../package.json').version;
+import Generator from 'yeoman-generator';
+import moment from 'moment';
+import path from 'path';
+const generatorVersion = (await import('../../package.json', { with: { type: "json" } })).default.version;
 
-module.exports = class extends Generator {
+export default class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
@@ -31,7 +31,7 @@ module.exports = class extends Generator {
       message: 'Author:',
     });
     prompts.push({
-      type: 'list',
+      type: 'select',
       name: 'type',
       message: 'Application type:',
       choices: ['Application', 'Server Application'],
@@ -49,10 +49,10 @@ module.exports = class extends Generator {
     this.destinationRoot(path.join(this.contextRoot, this.options.projectName));
   }
 
-  writing() {
+  async writing() {
     let filelist = ['CMakeLists.txt', '.vscode/launch.json'];
 
-    const config = require(`./${this.options.type.replace(' ', '')}.json`);
+    const config = (await import(`./${this.options.type.replace(' ', '')}.json`, { with: { type: "json" } })).default;
 
     for (const file of filelist) {
       this.fs.copyTpl(this.templatePath(file), this.destinationPath(file), {
