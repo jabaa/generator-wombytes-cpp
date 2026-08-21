@@ -1,11 +1,12 @@
-const helpers = require('yeoman-test');
-const expect = require('expect.js');
-const path = require('path');
-const fs = require('fs');
-const moment = require('moment');
-const generatorVersion = require('../package.json').version;
-const Chance = require('chance');
+import helpers from 'yeoman-test';
+import expect from 'expect.js';
+import path from 'path';
+import fs from 'fs';
+import moment from 'moment';
+const generatorVersion = (await import('../package.json', { with: { type: "json" } })).default.version;
+import Chance from 'chance';
 const chance = new Chance();
+const __dirname = import.meta.dirname;
 
 const licenseText = `Copyright ${moment().year()} Author Name
 
