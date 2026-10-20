@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "moment": "^2.29.1",
-    "yeoman-generator": "^8.2.2"
+    "yeoman-generator": "^10.2.0"
   },
   "devDependencies": {
     "@yeoman/adapter": "^4.0.2",
